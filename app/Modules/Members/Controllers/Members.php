@@ -108,11 +108,22 @@ class Members extends Controller
     {
         $u_id = $this->auth->currentSessionInfo()['uid'];
 
+
+
         $onlineUsers = new MembersModel();
         $username = $onlineUsers->getUserName($u_id);
         if(sizeof($username) > 0){
+
+            if (isset($_POST['submit'])) {
+                if(Csrf::isTokenValid()) {
+                    var_dump($_POST);
+                }
+
+            }
+
             $username = $username[0]->username;
             $profile = $onlineUsers->getUserProfile($username);
+
 
             $data['title'] = $username . "'s Profile";
             $data['profile'] = $profile[0];

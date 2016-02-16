@@ -22,17 +22,17 @@
                 </div>
                 <?php if($data['profile']->userImage != ""){ ?>
                 <div class="form-group">
-                    <label for="email">Real Image: </label><span class="label label-danger pull-right">Required</span>
+                    <label for="email">Current Profile Picture: </label><span class="label label-danger pull-right">Required</span>
                     <img alt="User Pic" src="<?php echo DIR.'images/profile/'.$data['profile']->userImage; ?>" class="img-circle img-responsive">
                 </div>
                 <?php } ?>
                 <div class="form-group">
-                    <label class="control-label">Profile Picture</label>
+                    <label class="control-label">New Profile Picture</label>
                     <input type="file" class="form-control" accept="image/jpeg" id="profilePic" name="profilePic">
                 </div>
                 <div class="form-group">
                     <label for="aboutMe">About Me: </label><span class="label label-danger pull-right">Required</span>
-                    <textarea id="aboutMe"  class="form-control" name="aboutMe" placeholder="Enter Profile"></textarea>
+                    <textarea id="aboutMe"  class="form-control" name="aboutMe" placeholder="Enter Profile" rows="5"></textarea>
                 </div>
                 <input type="hidden" name="csrf_token" value="<?= $data['csrf_token']; ?>" />
                 <input type="submit" name="submit" class="btn btn-primary" value="Update my profile info!!">
