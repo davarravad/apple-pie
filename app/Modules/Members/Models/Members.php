@@ -125,4 +125,11 @@ class Members extends Model
     {
         return $this->db->select("SELECT userID,username FROM ".PREFIX."users WHERE userID=:id",array(":id"=>$id));
     }
+
+    public function updateProfile($u_id, $firstName, $gender, $website, $userImage, $aboutme)
+    {
+        $query_a = $this->db->update(PREFIX.'users', array('firstName' => $firstName, 'gender' => $gender, 'userImage' => $userImage), array('userID' => $u_id));
+        $query_b = $this->db->update(PREFIX.'users_extprofile', array('website' => $website, 'aboutme' => $aboutme), array('userID' => $u_id));
+        return $query_a + $query_b;
+    }
 }

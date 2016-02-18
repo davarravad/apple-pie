@@ -4,10 +4,10 @@
             <h1>Edit Profile <strong><?php echo $data['profile']->username; ?></strong></h1>
             <hr>
 
-            <form role="form" method="post">
+            <form role="form" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="username">First Name: </label><span class="label label-danger pull-right">Required</span>
-                    <input id="username" type="text" class="form-control" name="username" placeholder="Enter your Name" value="<?php echo $data['profile']->firstName; ?>">
+                    <label for="firstName">First Name: </label><span class="label label-danger pull-right">Required</span>
+                    <input id="firstName" type="text" class="form-control" name="firstName" placeholder="Enter your Name" value="<?php echo $data['profile']->firstName; ?>">
                 </div>
                 <div class='form-group'>
                     <label for="gender">Gender: </label><span class="label label-danger pull-right">Required</span>
@@ -23,7 +23,8 @@
                 <?php if($data['profile']->userImage != ""){ ?>
                 <div class="form-group">
                     <label for="email">Current Profile Picture: </label><span class="label label-danger pull-right">Required</span>
-                    <img alt="User Pic" src="<?php echo DIR.'images/profile/'.$data['profile']->userImage; ?>" class="img-circle img-responsive">
+<!--                    <img alt="User Pic" src="--><?php //echo DIR.'images/profile/'.$data['profile']->userImage; ?><!--" class="img-circle img-responsive">-->
+                    <img alt="User Pic" src="<?php echo $data['profile']->userImage; ?>" class="img-circle img-responsive">
                 </div>
                 <?php } ?>
                 <div class="form-group">
