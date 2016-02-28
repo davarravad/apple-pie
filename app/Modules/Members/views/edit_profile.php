@@ -22,7 +22,7 @@
                 </div>
                 <?php if($data['profile']->userImage != ""){ ?>
                 <div class="form-group">
-                    <label for="email">Current Profile Picture: </label><span class="label label-danger pull-right">Required</span>
+                    <label for="email">Current Profile Picture: </label>
 <!--                    <img alt="User Pic" src="--><?php //echo DIR.'images/profile/'.$data['profile']->userImage; ?><!--" class="img-circle img-responsive">-->
                     <img alt="User Pic" src="<?php echo $data['profile']->userImage; ?>" class="img-circle img-responsive">
                 </div>
@@ -32,7 +32,7 @@
                     <input type="file" class="form-control" accept="image/jpeg" id="profilePic" name="profilePic">
                 </div>
                 <div class="form-group">
-                    <label for="aboutMe">About Me: </label><span class="label label-danger pull-right">Required</span>
+                    <label for="aboutMe">About Me: </label>
                     <textarea id="aboutMe"  class="form-control" name="aboutMe" placeholder="Enter Profile" rows="5"></textarea>
                 </div>
                 <input type="hidden" name="csrf_token" value="<?= $data['csrf_token']; ?>" />

@@ -122,15 +122,15 @@ class Members extends Controller
                     $gender = Request::post('gender') == 'male' ? 'Male' : 'Female';
                     $website = !filter_var(Request::post('website'), FILTER_VALIDATE_URL) === false ? Request::post('website') : DIR.'profile/'.$username;
                     $aboutMe = nl2br(strip_tags(Request::post('aboutMe')));
-//                    $picture = ((isset ( $_FILES ['profilePic'] )) ? $_FILES ['profilePic'] : array ());
-//                    if(sizeof($picture)>0){
-//                        var_dump($picture);
-//                        $check = getimagesize ( $picture['tmp_name'] );
-//                        var_dump($check);
-//                    }
-//                    else{
-//
-//                    }
+                    $picture = ((isset ( $_FILES ['profilePic'] )) ? $_FILES ['profilePic'] : array ());
+                    if(sizeof($picture)>0){
+                        var_dump($picture);
+                        $check = getimagesize ( $picture['tmp_name'] );
+                        var_dump($check);
+                    }
+                    else{
+
+                    }
                     $userImage = "http://lorempixel.com/400/200/";
                     $onlineUsers->updateProfile($u_id, $firstName, $gender, $website, $userImage, $aboutMe);
                 }
