@@ -7,9 +7,11 @@ use Core\Controller,
     Core\Error,
     Helpers\Auth\Auth as AuthHelper,
     Helpers\Csrf,
+    Helpers\Request,
+    Helpers\SimpleImage,
     Models\Users,
     Modules\Members\Models\Members as MembersModel;
-use Helpers\Request;
+
 
 
 class Members extends Controller
@@ -126,6 +128,13 @@ class Members extends Controller
                     if(sizeof($picture)>0){
                         var_dump($picture);
                         $check = getimagesize ( $picture['tmp_name'] );
+
+                        if($picture['size'] < 1000000 && $check && $check->type == "image/jpeg"){
+                            mkdir(DIR.'images/profile-pics');
+                            $image = new SimpleImage($picture['tmp_name']);
+                            $image->best_fit(400,300)->save(DIR.'images/profile-pics/'.$username.'.jpg');
+                        }
+
                         var_dump($check);
                     }
                     else{
