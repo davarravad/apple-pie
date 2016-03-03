@@ -130,10 +130,10 @@ class Members extends Controller
                         $check = getimagesize ( $picture['tmp_name'] );
 
                         if($picture['size'] < 1000000 && $check && $check->type == "image/jpeg"){
-                            var_dump(file_exists(DIR.'images/profile-pics'));
-                            mkdir(DIR.'images/profile-pics');
+                            var_dump(file_exists('images/profile-pics'));
+                            mkdir('images/profile-pics');
                             $image = new SimpleImage($picture['tmp_name']);
-                            $image->best_fit(400,300)->save(DIR.'images/profile-pics/'.$username.'.jpg');
+                            $image->best_fit(400,300)->save('images/profile-pics/'.$username.'.jpg');
                         }
 
                         var_dump($check);
