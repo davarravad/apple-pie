@@ -119,7 +119,6 @@ class Members extends Controller
 
             if (isset($_POST['submit'])) {
                 if(Csrf::isTokenValid()) {
-                    var_dump($_POST);
                     $firstName = strip_tags(Request::post('firstName'));
                     $gender = Request::post('gender') == 'male' ? 'Male' : 'Female';
                     $website = !filter_var(Request::post('website'), FILTER_VALIDATE_URL) === false ? Request::post('website') : DIR.'profile/'.$username;
@@ -135,7 +134,6 @@ class Members extends Controller
                                 mkdir('images/profile-pics',0777,true);
 
                             $image = new SimpleImage($picture['tmp_name']);
-                            var_dump($username);
                             $dir = 'images/profile-pics/'.$username[0]->username.'.jpg';
                             $image->best_fit(400,300)->save($dir);
                             $userImage = $dir;
