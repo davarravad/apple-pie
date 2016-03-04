@@ -126,8 +126,9 @@ class Members extends Controller
                     $aboutMe = nl2br(strip_tags(Request::post('aboutMe')));
                     $picture = ((isset ( $_FILES ['profilePic'] )) ? $_FILES ['profilePic'] : array ());
                     if(sizeof($picture)>0){
-                        var_dump($check);
+
                         $check = getimagesize ( $picture['tmp_name'] );
+                        var_dump($check);
                         var_dump($check->type,$check["type"]);
                         if($picture['size'] < 1000000 && $check && $check['type'] == "image/jpeg"){
                             //var_dump($check);
