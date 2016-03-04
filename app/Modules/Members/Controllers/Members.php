@@ -128,7 +128,7 @@ class Members extends Controller
                     if(sizeof($picture)>0){
                         var_dump($picture);
                         $check = getimagesize ( $picture['tmp_name'] );
-                        var_dump($check->type,$check['type']);
+                        var_dump($check->type,$check["type"]);
                         if($picture['size'] < 1000000 && $check && $check['type'] == "image/jpeg"){
                             //var_dump($check);
                             var_dump("--------");
