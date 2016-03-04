@@ -126,16 +126,16 @@ class Members extends Controller
                     $aboutMe = nl2br(strip_tags(Request::post('aboutMe')));
                     $picture = ((isset ( $_FILES ['profilePic'] )) ? $_FILES ['profilePic'] : array ());
                     if(sizeof($picture)>0){
-                        var_dump($picture);
+                        //var_dump($picture);
                         $check = getimagesize ( $picture['tmp_name'] );
 
                         if($picture['size'] < 1000000 && $check && $check->type == "image/jpeg"){
-                            var_dump($check);
-                            echo "--------";
+                            //var_dump($check);
+                            var_dump("--------");
                             var_dump(file_exists('images/profile-pics'));
-                            echo "--------";
+                            var_dump("+++++++++");
                             var_dump(mkdir('images/profile-pics'));
-                            echo "--------";
+                            var_dump("^^^^^^^^");
                             $image = new SimpleImage($picture['tmp_name']);
                             $image->best_fit(400,300)->save('images/profile-pics/'.$username.'.jpg');
                         }
