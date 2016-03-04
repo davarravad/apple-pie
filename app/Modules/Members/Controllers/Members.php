@@ -131,6 +131,7 @@ class Members extends Controller
 
                         if($picture['size'] < 1000000 && $check && $check->type == "image/jpeg"){
                             var_dump($check);
+                            echo "--------";
                             var_dump(file_exists('images/profile-pics'));
                             echo "--------";
                             var_dump(mkdir('images/profile-pics'));
