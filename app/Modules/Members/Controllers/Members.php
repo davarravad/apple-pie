@@ -125,28 +125,23 @@ class Members extends Controller
                     $website = !filter_var(Request::post('website'), FILTER_VALIDATE_URL) === false ? Request::post('website') : DIR.'profile/'.$username;
                     $aboutMe = nl2br(strip_tags(Request::post('aboutMe')));
                     $picture = ((isset ( $_FILES ['profilePic'] )) ? $_FILES ['profilePic'] : array ());
+                    $userImage = Request::post('oldImg');
                     if(sizeof($picture)>0){
 
                         $check = getimagesize ( $picture['tmp_name'] );
 
-
                         if($picture['size'] < 1000000 && $check && $check['mime'] == "image/jpeg"){
-                            //var_dump($check);
-                            var_dump("--------");
-                            var_dump(file_exists('images/profile-pics'));
-                            var_dump("+++++++++");
-                            var_dump(mkdir('images/profile-pics',0777,true));
-                            var_dump("^^^^^^^^");
+                            if(!file_exists('images/profile-pics'))
+                                mkdir('images/profile-pics',0777,true);
+
                             $image = new SimpleImage($picture['tmp_name']);
-                            $image->best_fit(400,300)->save('images/profile-pics/'.$username.'.jpg');
+                            $dir = 'images/profile-pics/'.$username->username.'.jpg';
+                            $image->best_fit(400,300)->save($dir);
+                            $userImage = $dir;
                         }
 
 
                     }
-                    else{
-
-                    }
-                    $userImage = "http://lorempixel.com/400/200/";
                     $onlineUsers->updateProfile($u_id, $firstName, $gender, $website, $userImage, $aboutMe);
                 }
                 else{

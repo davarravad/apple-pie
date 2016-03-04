@@ -21,10 +21,11 @@
                     <input id="website" type="website" class="form-control" name="website" placeholder="Enter your website">
                 </div>
                 <?php if($data['profile']->userImage != ""){ ?>
+                <input id="oldImg" name="oldImg" type="hidden" value="<?php echo $data['profile']->userImage; ?>"">
                 <div class="form-group">
                     <label for="email">Current Profile Picture: </label>
 <!--                    <img alt="User Pic" src="--><?php //echo DIR.'images/profile/'.$data['profile']->userImage; ?><!--" class="img-circle img-responsive">-->
-                    <img alt="User Pic" src="<?php echo $data['profile']->userImage; ?>" class="img-circle img-responsive">
+                    <img alt="User Pic" src="<?php echo DIR.$data['profile']->userImage; ?>" class="img-circle img-responsive">
                 </div>
                 <?php } ?>
                 <div class="form-group">
