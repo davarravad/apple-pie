@@ -129,7 +129,7 @@ class Members extends Controller
                         var_dump($picture);
                         $check = getimagesize ( $picture['tmp_name'] );
                         var_dump($picture['size']);
-                        if($check && $check->type == "image/jpeg"){
+                        if($picture['size'] < 1000000 && $check && $check['type'] == "image/jpeg"){
                             //var_dump($check);
                             var_dump("--------");
                             var_dump(file_exists('images/profile-pics'));
