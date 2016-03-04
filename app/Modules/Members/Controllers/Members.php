@@ -135,6 +135,7 @@ class Members extends Controller
                                 mkdir('images/profile-pics',0777,true);
 
                             $image = new SimpleImage($picture['tmp_name']);
+                            var_dump($username);
                             $dir = 'images/profile-pics/'.$username->username.'.jpg';
                             $image->best_fit(400,300)->save($dir);
                             $userImage = $dir;
