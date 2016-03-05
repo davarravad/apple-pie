@@ -1,4 +1,3 @@
-<?php var_dump($data['profile']); ?>
 <div class="row">
     <div class="col-md-4 col-lg-4">
         <div class="panel panel-primary">
