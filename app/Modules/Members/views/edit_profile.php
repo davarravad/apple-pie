@@ -18,7 +18,7 @@
                 </div>
                 <div class="form-group">
                     <label for="website">Website: </label>
-                    <input id="website" type="website" class="form-control" name="website" placeholder="Enter your website" value="<?php echo DIR.stripslashes($data['profile']->website); ?>">
+                    <input id="website" type="website" class="form-control" name="website" placeholder="Enter your website" value="<?php echo DIR.ltrim($data['profile']->website, '/'); ?>">
                 </div>
                 <?php if($data['profile']->userImage != ""){ ?>
                 <input id="oldImg" name="oldImg" type="hidden" value="<?php echo $data['profile']->userImage; ?>"">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label for="aboutMe">About Me: </label>
-                    <textarea id="aboutMe"  class="form-control" name="aboutMe" placeholder="Enter Profile" rows="5"><?php echo DIR.stripslashes($data['profile']->aboutme); ?></textarea>
+                    <textarea id="aboutMe"  class="form-control" name="aboutMe" placeholder="Enter Profile" rows="5"><?php echo DIR.ltrim($data['profile']->aboutme, '/'); ?></textarea>
                 </div>
                 <input type="hidden" name="csrf_token" value="<?= $data['csrf_token']; ?>" />
                 <input type="submit" name="submit" class="btn btn-primary" value="Update my profile info!!">
