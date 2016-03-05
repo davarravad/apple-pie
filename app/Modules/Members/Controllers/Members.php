@@ -127,18 +127,21 @@ class Members extends Controller
                     $userImage = Request::post('oldImg');
                     if(sizeof($picture)>0){
 
-                        $check = getimagesize ( $picture['tmp_name'] );
+                        if(isset($picture['tmp_name'])){
+						
+							$check = getimagesize ( $picture['tmp_name'] );
 
-                        if($picture['size'] < 1000000 && $check && $check['mime'] == "image/jpeg"){
-                            if(!file_exists('images/profile-pics'))
-                                mkdir('images/profile-pics',0777,true);
+							if($picture['size'] < 1000000 && $check && $check['mime'] == "image/jpeg"){
+								if(!file_exists('images/profile-pics'))
+									mkdir('images/profile-pics',0777,true);
 
-                            $image = new SimpleImage($picture['tmp_name']);
-                            $dir = 'images/profile-pics/'.$username[0]->username.'.jpg';
-                            $image->best_fit(400,300)->save($dir);
-                            $userImage = $dir;
-                        }
+								$image = new SimpleImage($picture['tmp_name']);
+								$dir = 'images/profile-pics/'.$username[0]->username.'.jpg';
+								$image->best_fit(400,300)->save($dir);
+								$userImage = $dir;
+							}
 
+						}
 
                     }
                     $onlineUsers->updateProfile($u_id, $firstName, $gender, $website, $userImage, $aboutMe);
