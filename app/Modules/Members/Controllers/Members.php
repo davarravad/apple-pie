@@ -123,8 +123,8 @@ class Members extends Controller
                     $gender = Request::post('gender') == 'male' ? 'Male' : 'Female';
                     $website = !filter_var(Request::post('website'), FILTER_VALIDATE_URL) === false ? Request::post('website') : DIR.'profile/'.$username;
                     $aboutMe = nl2br(strip_tags(Request::post('aboutMe')));
-                    
-                    $picture = file_exists($_FILES['profilePic']['tmp_name']) || is_uploaded_file($_FILES['profilePic']['tmp_name'] ? $_FILES ['profilePic'] : array ();
+
+                    $picture = file_exists($_FILES['profilePic']['tmp_name']) || is_uploaded_file($_FILES['profilePic']['tmp_name']) ? $_FILES ['profilePic'] : array ();
                     $userImage = Request::post('oldImg');
 
                     if(sizeof($picture)>0){
