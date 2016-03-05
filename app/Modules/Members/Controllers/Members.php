@@ -127,7 +127,7 @@ class Members extends Controller
                     $userImage = Request::post('oldImg');
                     if(sizeof($picture)>0){
 
-                        if(isset($picture['tmp_name'])){
+                        if(!empty($picture['tmp_name'])){
 						
 							$check = getimagesize ( $picture['tmp_name'] );
 
