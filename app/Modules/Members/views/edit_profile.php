@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label for="aboutMe">About Me: </label>
-                    <textarea id="aboutMe"  class="form-control" name="aboutMe" placeholder="Enter Profile" rows="5"><?php echo $data['profile']->aboutme; ?></textarea>
+                    <textarea id="aboutMe"  class="form-control" name="aboutMe" placeholder="Enter Profile" rows="5"><?php echo str_replace('<br />' , '', $data['profile']->aboutme); ?></textarea>
                 </div>
                 <input type="hidden" name="csrf_token" value="<?= $data['csrf_token']; ?>" />
                 <input type="submit" name="submit" class="btn btn-primary" value="Update my profile info!!">
