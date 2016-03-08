@@ -111,12 +111,9 @@ class Members extends Model
 						u.userImage,
 						u.LastLogin,
 						u.SignUp,
-						ue.userID,
-						ue.website,
-						ue.aboutme
+						u.website,
+						u.aboutme
 					FROM " . PREFIX . "users u
-					LEFT JOIN " . PREFIX . "users_extprofile ue
-						ON u.userID = ue.userID
 					WHERE u.username = :username",
             array(':username' => $username));
     }
@@ -128,8 +125,6 @@ class Members extends Model
 
     public function updateProfile($u_id, $firstName, $gender, $website, $userImage, $aboutme)
     {
-        $query_a = $this->db->update(PREFIX.'users', array('firstName' => $firstName, 'gender' => $gender, 'userImage' => $userImage), array('userID' => $u_id));
-        $query_b = $this->db->update(PREFIX.'users_extprofile', array('website' => $website, 'aboutme' => $aboutme), array('userID' => $u_id));
-        return $query_a + $query_b;
+        return $this->db->update(PREFIX.'users', array('firstName' => $firstName, 'gender' => $gender, 'userImage' => $userImage, 'website' => $website, 'aboutme' => $aboutme), array('userID' => $u_id));
     }
 }
