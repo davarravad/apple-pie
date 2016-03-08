@@ -138,9 +138,6 @@ class Members extends Controller
 								$image->best_fit(400,300)->save($dir);
 								$userImage = $dir;
 							}
-
-
-
                     }
                     $onlineUsers->updateProfile($u_id, $firstName, $gender, $website, $userImage, $aboutMe);
                 }
