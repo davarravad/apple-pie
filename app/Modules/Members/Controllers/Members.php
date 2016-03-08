@@ -128,9 +128,6 @@ class Members extends Controller
                     $userImage = Request::post('oldImg');
 
                     if(sizeof($picture)>0){
-
-
-						
 							$check = getimagesize ( $picture['tmp_name'] );
 
 							if($picture['size'] < 1000000 && $check && $check['mime'] == "image/jpeg"){
