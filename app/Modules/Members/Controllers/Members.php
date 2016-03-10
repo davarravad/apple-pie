@@ -140,9 +140,12 @@ class Members extends Controller
 							}
                     }
                     $onlineUsers->updateProfile($u_id, $firstName, $gender, $website, $userImage, $aboutMe);
+                    $data['message'] = "Successfully updated profile";
+                    $data['type'] = "success";
                 }
                 else{
-
+                    $data['message'] = "Error Updating profile";
+                    $data['type'] = "error";
                 }
 
             }
