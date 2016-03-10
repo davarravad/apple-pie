@@ -7,7 +7,7 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-8 col-lg-8" align="center">
-                        <img alt="<?php echo $data['profile']->username; ?>'s Profile Picture" src="<?php echo $data['profile']->userImage; ?>" class="img-circle img-responsive">
+                        <img alt="<?php echo $data['profile']->username; ?>'s Profile Picture" src="<?php echo DIR.$data['profile']->userImage; ?>" class="img-circle img-responsive">
                     </div>
                 </div>
             </div>
