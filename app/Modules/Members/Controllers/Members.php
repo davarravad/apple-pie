@@ -56,6 +56,13 @@ class Members extends Controller
         View::renderModule('Members/views/online_users',$data);
     }
 
+    /**
+     * For inserting list navbar
+     */
+    public function navbar()
+    {
+        View::renderModule('Members/views/navbar');
+    }
 
     /**
      * Page for list of activated accounts
@@ -110,8 +117,6 @@ class Members extends Controller
     public function editProfile()
     {
         $u_id = $this->auth->currentSessionInfo()['uid'];
-
-
 
         $onlineUsers = new MembersModel();
         $username = $onlineUsers->getUserName($u_id);

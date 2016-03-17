@@ -56,7 +56,8 @@ class Hooks
             'footer',
             'js',
             'routes',
-            'sidebar'
+            'sidebar',
+            'navbar'
         ));
 
         //load modules

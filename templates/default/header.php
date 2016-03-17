@@ -64,9 +64,9 @@ $hooks = Hooks::get();
 					<li><a href="<?php echo DIR; ?>login">Login</a></li>
 					<li><a href="<?php echo DIR; ?>register">Register</a></li>
 				<?php }else{ ?>
-					<li><a href="<?php echo DIR; ?>edit-profile">Change Profile</a></li>
-					<li><a href="<?php echo DIR; ?>change-email">Change Email</a></li>
-					<li><a href="<?php echo DIR; ?>change-password">Change Password</a></li>
+					<?php
+					$hooks->run('navbar');
+					?>
 					<li><a href="<?php echo DIR; ?>logout">Logout</a></li>
 				<?php }?>
 			</ul>
